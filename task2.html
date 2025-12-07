@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторна 6 (Завдання 2): 2D Transforms</title>
+    
+    <meta name="description" content="Демонстрація 2D Transforms на сторінці про гриби."> 
+    <meta name="keywords" content="гриби, html5, css3, 2d-transform">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f0f8ff, #e9f0f9); 
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        main {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .article-title {
+            text-decoration: underline solid #365F93; 
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); 
+            display: inline-block; 
+            transition: transform 0.5s ease;
+        }
+
+        .article-title:hover {
+            transform: rotate(-3deg); 
+        }
+
+        aside input[type="text"] {
+            cursor: grab; 
+            caret-color: #365F93;
+            border: 1px solid #ccc;
+            padding: 5px;
+            width: 90%;
+            margin-top: 10px;
+            transform-origin: left top; 
+            transform: scale(1) matrix(1, 0, 0, 1, 0, 0); 
+            transition: transform 0.4s ease;
+        }
+
+        aside input[type="text"]:focus {
+            transform: scale(1.1) matrix(1.1, 0, 0, 1.1, 10, 5);
+            outline: none;
+            border-color: #365F93;
+        }
+        
+        footer {
+            background-color: #365F93;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            clear: both;
+            transition: transform 0.5s ease;
+        }
+        
+        footer:hover {
+            transform: skew(-2deg);
+        }
+
+        header { background-color: #365F93; color: white; padding: 30px 20px; text-align: center; margin-bottom: 20px; text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.4); }
+        hgroup h1 { font-size: 3em; font-weight: 800; }
+        nav { background-color: #6a96c9; }
+        nav ul { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; border-bottom: 2px solid #365F93; }
+        nav a { display: block; padding: 10px 20px; color: white; text-decoration: none; transition: background-color 0.3s; }
+        nav a:hover { background-color: #365F93; }
+        section { width: 100%; margin-bottom: 30px; }
+        article { width: 65%; margin-right: 3%; padding: 25px; background-color: white; box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); border-radius: 15px; resize: horizontal; overflow: auto; margin-bottom: 20px; }
+        aside { width: 28%; padding: 20px; background-color: #e0f2ff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 10px; border: 15px solid transparent; border-image-source: url('ramka (1).gif'); border-image-slice: 30; border-image-repeat: repeat; border-image-width: 15px; border-image-outset: 5px; }
+        figure img { max-width: 100%; height: auto; display: block; margin: 0 auto 10px auto; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); }
+        figcaption { font-size: 0.9em; color: #555; padding-top: 5px; border-top: 1px dashed #eee; }
+        footer a { color: #ffc; text-decoration: none; margin: 0 10px; }
+    </style>
+</head>
+<body>
+    <header>
+        <hgroup>
+            <h1>Світ Грибів</h1>
+            <p>Дослідження різноманіття (Тема: Гриби)</p>
+        </hgroup>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#lysyczka">Лисички</a></li>
+            <li><a href="#bilyi">Білий гриб</a></li>
+            <li><a href="#mukhomor">Мухомор</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section id="basics">
+            <h2>Основи мікології</h2>
+            <p>Гриби — це особливе царство живих організмів, яке поєднує ознаки рослин і тварин. Вони відіграють ключову роль у екосистемах.</p>
+        </section>
+        
+        <article id="lysyczka">
+            <header>
+                <h3 class="article-title">Лисичка звичайна</h3>
+            </header>
+            <p data-author="Міколог">Лисичка є однією з найпопулярніших їстівних грибів.</p>
+            <figure>
+                <a href="https://uk.wikipedia.org/wiki/Лисичка_справжня" target="_blank">
+                    <img src="./lysyczka.png" alt="Зображення Лисички звичайної">
+                </a>
+                <figcaption>Лисички ніколи не бувають червивими, що робить їх ідеальними для збору.</figcaption>
+            </figure>
+        </article>
+        
+        <article id="bilyi">
+            <header>
+                <h3 class="article-title">Білий гриб</h3>
+            </header>
+            <p data-author="Міколог">Білий гриб вважається "королем" грибного царства через свій смак і щільну консистенцію.</p>
+            <figure>
+                <a href="https://uk.wikipedia.org/wiki/Білий_гриб" target="_blank">
+                    <img src="./bilyi.png" alt="Зображення Білого гриба">
+                </a>
+                <figcaption>М'якуш білого гриба не темніє при розрізуванні, на відміну від багатьох інших трубчастих грибів, і зберігає білий колір навіть після термічної обробки.</figcaption>
+            </figure>
+        </article>
+
+        <article id="mukhomor">
+            <header>
+                <h3 class="article-title">Мухомор червоний</h3>
+            </header>
+            <p data-author="Токсиколог">Мухомор — це яскравий, але небезпечний представник грибного царства. Він містить сильні токсини, які можуть викликати серйозне отруєння.</p>
+            <figure>
+                <a href="https://uk.wikipedia.org/wiki/Мухомор_червоний" target="_blank">
+                    <img src="./mukhomor.png" alt="Зображення Мухомора червоного">
+                </a>
+                <figcaption>Характерний червоний колір капелюшка з білими пластівцями робить мухомор легко впізнаваним. **Застереження: Мухомор є отруйним грибом.**</figcaption>
+            </figure>
+        </article>
+
+    </main>
+    
+    <aside>
+        <h4>Поради грибника</h4>
+        <p>Завжди беріть із собою компас і ніколи не збирайте гриби, які не знаєте. Безпека понад усе!</p>
+        <input type="text" placeholder="Ваш коментар про гриби...">
+    </aside>
+
+    <footer>
+        <p>
+            <a href="https://sondei555.github.io/lab/" class="main-link">На головну дисципліни</a>
+        </p>
+    </footer>
+
+</body>
+</html>
